@@ -22,9 +22,18 @@
           }
           mergedPRs: pullRequests(states: [MERGED]) {
             totalCount
-          },
+          }
           releases {
             totalCount
+          }
+          commits: defaultBranchRef {
+            target {
+              ... on Commit {
+                history(since: "2019-04-04T01:00:00", until: "2019-04-04T23:00:00") {
+                  totalCount
+                }
+              }
+            }
           }
         }
       }
